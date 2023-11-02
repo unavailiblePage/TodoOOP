@@ -35,7 +35,7 @@ namespace TodoOOP
         }
         public string ToString()
         {
-           return Index + ": Title: " + Title + " Description: " + Description;
+           return Index + ": Title: " + Title + "\n"+ "     Description: " + Description;
         }
     }
 }

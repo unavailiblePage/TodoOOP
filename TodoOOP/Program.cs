@@ -3,10 +3,13 @@ using TodoOOP;
 
 Writer writer = new Writer();
 Reader reader = new Reader();
+Edit edit = new Edit();
+Menu menu = new Menu();
 
-List<Todo> todos = reader.ReadTodos();
+//List<Todo> todos = reader.ReadTodos();
+menu.ShowMenuSelection();
 
-todos.ToString();
+//todos.ToString();
 
-writer.Write(todos);
-writer.WriteToFile(todos);
+//writer.Write(todos);
+//writer.WriteToFile(todos);

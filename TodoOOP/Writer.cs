@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace TodoOOP
 {
-    internal class Writer
+    public class Writer
     {
-        public string filePath_OSx = "/Users/mib/RiderProjects/TodoOOP/TodoOOP";
-        public string filePath_Win = "C:\\Users\\kolovratnik\\Desktop\\programs\\programovani\\TodoOOP\\TodoOOP";
-
         public void Write(List<Todo> todoToWrite)
         {
             for (int i = 0; i < todoToWrite.Count; i++)
@@ -18,13 +15,13 @@ namespace TodoOOP
                 Console.WriteLine(todoToWrite[i].ToString());
             }
         }
-        public void WriteToFile(List<Todo> todoToWriteToFile)
+        public void WriteToFile(List<Todo> todoToWriteToFile, string filePath)
         {
-            StreamWriter outputFile = new StreamWriter(Path.Combine(filePath_Win, "Todos.txt"));
+            StreamWriter outputFile = new StreamWriter(Path.Combine(filePath, "Todos.txt"));
             {
                 foreach (Todo line in todoToWriteToFile)
                 {
-                    outputFile.WriteLine(line.ToString());
+                    outputFile.WriteLine(line.ToCsvString());
                 }
                 outputFile.Close();
             }

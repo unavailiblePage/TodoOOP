@@ -6,7 +6,8 @@
         {
             string? line;
             List<Todo> todosFromFile = new List<Todo>(); // list objektů
-            StreamReader reader = new StreamReader(Path.Combine(pathToFile, "Todos.txt"));
+            //StreamReader reader = new StreamReader(Path.Combine(pathToFile));
+            using StreamReader reader = new StreamReader(Path.Combine(pathToFile));
             Todo todo; // definice prostoru pro nový objekt
             line = reader.ReadLine();
             while (line != null)

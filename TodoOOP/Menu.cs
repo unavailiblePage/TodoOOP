@@ -2,9 +2,10 @@ namespace TodoOOP;
 
 public class Menu
 {
-    public string filePath_OSx = "/Users/mib/RiderProjects/TodoOOP/TodoOOP";
-    public string filePath_Win = "C:\\Users\\kolovratnik\\Desktop\\programs\\programovani\\TodoOOP\\TodoOOP";
-    public string filePath_Lin = "/home/mib/RiderProjects/TodoOOP/TodoOOP/";
+    public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+    public string fileName = "Todos.txt";
+    public string fullPath;
+
     public List<Todo> Todos;
 
     public Writer ConsoleOutput;
@@ -12,9 +13,10 @@ public class Menu
     
     public Menu()
     {
+        fullPath = Path.Combine(projectDirectory, fileName);
         ConsoleInput = new Reader();
         ConsoleOutput = new Writer();
-        Todos = ConsoleInput.ReadTodosFromFile(filePath_Lin);
+        Todos = ConsoleInput.ReadTodosFromFile(this.fullPath);
     }
 
 public void ShowMenuSelection()
@@ -39,7 +41,7 @@ public void ShowMenuSelection()
                 case 1:
                     Console.Clear();
                     Todos = ConsoleInput.GetTodos(Todos);
-                    ConsoleOutput.WriteToFile(Todos, filePath_Lin); 
+                    ConsoleOutput.WriteToFile(Todos, fullPath); 
                     break;
                 case 2:
                     Console.Clear();

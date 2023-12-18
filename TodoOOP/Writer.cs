@@ -17,7 +17,8 @@ namespace TodoOOP
         }
         public void WriteToFile(List<Todo> todoToWriteToFile, string filePath)
         {
-            StreamWriter outputFile = new StreamWriter(Path.Combine(filePath, "Todos.txt"));
+            //StreamWriter outputFile = new StreamWriter(Path.Combine(filePath));
+            using (StreamWriter outputFile = new StreamWriter(filePath))
             {
                 foreach (Todo line in todoToWriteToFile)
                 {

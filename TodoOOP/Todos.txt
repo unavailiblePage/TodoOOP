@@ -3,9 +3,3 @@
 3;neco2;neco2
 4;bbb;bbbb
 5;neco1;neco1
-6;ooo;ppp
-7;asdfasdf;sdafasdfafs
-8;141515151;51515151
-9;eded;eded
-10;dd;ss
-11;kkk;lll

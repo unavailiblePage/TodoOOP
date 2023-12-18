@@ -2,24 +2,55 @@ namespace TodoOOP;
 
 public class Menu
 {
+    /// <summary>
+    /// Represents the project directory path.
+    /// </summary>
+    /// <remarks>
+    /// The project directory is determined by getting the parent directory of the parent directory of the current directory.
+    /// </remarks>
     public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+    /// <summary>
+    /// The file name for the Todos file.
+    /// </summary>
+    /// <remarks>
+    /// This variable contains the name of the file where the Todos are stored.
+    /// </remarks>
     public string fileName = "Todos.txt";
+
+    /// :
     public string fullPath;
 
+    /// <summary>
+    /// The Todos variable is a List of Todo objects. It stores a collection of Todo items.
+    /// </summary>
     public List<Todo> Todos;
 
+    /// <summary>
+    /// Represents a writer used to output data to the console.
+    /// </summary>
     public Writer ConsoleOutput;
+
+    /// <summary>
+    /// Represents a reader object for reading input from the console.
+    /// </summary>
     public Reader ConsoleInput;
-    
+
+    /// <summary>
+    /// The Menu class represents the main menu of the program.
+    /// </summary>
     public Menu()
     {
         fullPath = Path.Combine(projectDirectory, fileName);
         ConsoleInput = new Reader();
         ConsoleOutput = new Writer();
-        Todos = ConsoleInput.ReadTodosFromFile(this.fullPath);
+        Todos = ConsoleInput.ReadTodosFromFile(fullPath);
     }
 
-public void ShowMenuSelection()
+    /// Shows a menu to the user and allows them to select various actions.
+    /// This method does not return any value.
+    /// /
+    public void ShowMenuSelection()
 {
     int choice;
         do
@@ -51,11 +82,29 @@ public void ShowMenuSelection()
                     Console.ReadKey();
                     break;
                 case 3:
+                    Console.Clear();
+                    Console.WriteLine("Yours TODOs: ");
+                    ConsoleOutput.Write(Todos);
+                    Console.WriteLine("Want you edit your todos? YxN");
+                    string choiceIfEdit = Console.ReadLine();
+                    Console.Clear();
+                    switch (choiceIfEdit)
+                    {
+                        case "y":
+                            ConsoleOutput.Write(Todos);
+                            //Console.Write("Which todo number select to edit? ");
+                            int lineToEdit = ConsoleInput.ReadTodoIndex();
+                            Console.WriteLine();
+                            
+                            break;
+                        case "n":
+                            break;
+                    }
                     break;
                 case 4:
                     break;
             }
             Console.Clear();
         } while (choice != 5);
-    }
+}
 }

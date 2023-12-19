@@ -35,6 +35,8 @@ public class Menu
     /// Represents a reader object for reading input from the console.
     /// </summary>
     public Reader ConsoleInput;
+    
+    Editor editor = new Editor();
 
     public Todo TodoOutPut;
 
@@ -53,6 +55,8 @@ public class Menu
     /// This method does not return any value.
     /// /
     public void ShowMenuSelection()
+    
+    
 {
     int choice;
         do
@@ -64,10 +68,10 @@ public class Menu
             Console.WriteLine("4) DELETE TODO");
             Console.WriteLine("5) SAVE & EXIT");
 
-            Console.WriteLine("Choose what you want to do: ");
+            Console.WriteLine("Select an option: ");
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
-                Console.WriteLine("Add valid choice!");
+                Console.WriteLine("Please enter a valid choice!");
             }
             switch (choice)
             {
@@ -80,7 +84,7 @@ public class Menu
                     Console.Clear();
                     Console.WriteLine("Yours TODOs: ");
                     ConsoleOutput.Write(Todos);
-                    Console.WriteLine("Press key to continue...");
+                    Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
                     break;
                 case 3:
@@ -88,37 +92,17 @@ public class Menu
                     Console.WriteLine("Yours TODOs: ");
                     ConsoleOutput.Write(Todos);
                     Console.WriteLine();
-                    Console.WriteLine("Want you edit your todos? YxN");
+                    Console.WriteLine("Do you want to edit your todos? Y/N");
                     string choiceIfEdit = Console.ReadLine();
                     Console.Clear();
                     switch (choiceIfEdit)
                     {
                         case "y":
-                            ConsoleOutput.Write(Todos);
-                            Console.WriteLine();
-                            int lineToEdit = ConsoleInput.ReadTodoIndex();
-                            Todo todoToEdit = Todos[lineToEdit - 1];
-                            Console.Clear();
-                            ConsoleOutput.Write(Todos);
-                            Console.WriteLine();
-                            Console.Write("Write new title: ");
-                            todoToEdit.Index = lineToEdit;
-                            todoToEdit.Title = Console.ReadLine();
-                            Console.Write("Write new description: ");
-                            todoToEdit.Description = Console.ReadLine();
-                            Console.Clear();
-                            todoToEdit.ToCsvString();
-                            ConsoleOutput.WriteToFile(Todos, fullPath);
-                            Console.Clear();
-                            ConsoleOutput.Write(Todos);
-                            Console.WriteLine();
-                            Console.WriteLine("Todo was edited. To continue press any key...");
-                            Console.ReadKey();
+                            editor.EditTodo(Todos, ConsoleOutput, ConsoleInput, fullPath);
                             break;
                         case "n":
                             break;
                     }
-                    
                     break;
                 case 4:
                     break;

@@ -18,7 +18,7 @@ public class Menu
     /// </remarks>
     public string fileName = "Todos.txt";
 
-    /// :
+    /// 
     public string fullPath;
 
     /// <summary>
@@ -35,6 +35,8 @@ public class Menu
     /// Represents a reader object for reading input from the console.
     /// </summary>
     public Reader ConsoleInput;
+
+    public Todo TodoOutPut;
 
     /// <summary>
     /// The Menu class represents the main menu of the program.
@@ -85,6 +87,7 @@ public class Menu
                     Console.Clear();
                     Console.WriteLine("Yours TODOs: ");
                     ConsoleOutput.Write(Todos);
+                    Console.WriteLine();
                     Console.WriteLine("Want you edit your todos? YxN");
                     string choiceIfEdit = Console.ReadLine();
                     Console.Clear();
@@ -92,14 +95,30 @@ public class Menu
                     {
                         case "y":
                             ConsoleOutput.Write(Todos);
-                            //Console.Write("Which todo number select to edit? ");
-                            int lineToEdit = ConsoleInput.ReadTodoIndex();
                             Console.WriteLine();
-                            
+                            int lineToEdit = ConsoleInput.ReadTodoIndex();
+                            Todo todoToEdit = Todos[lineToEdit - 1];
+                            Console.Clear();
+                            ConsoleOutput.Write(Todos);
+                            Console.WriteLine();
+                            Console.Write("Write new title: ");
+                            todoToEdit.Index = lineToEdit;
+                            todoToEdit.Title = Console.ReadLine();
+                            Console.Write("Write new description: ");
+                            todoToEdit.Description = Console.ReadLine();
+                            Console.Clear();
+                            todoToEdit.ToCsvString();
+                            ConsoleOutput.WriteToFile(Todos, fullPath);
+                            Console.Clear();
+                            ConsoleOutput.Write(Todos);
+                            Console.WriteLine();
+                            Console.WriteLine("Todo was edited. To continue press any key...");
+                            Console.ReadKey();
                             break;
                         case "n":
                             break;
                     }
+                    
                     break;
                 case 4:
                     break;

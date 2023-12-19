@@ -1,7 +1,7 @@
 ﻿namespace TodoOOP
 {
     /// The Reader class provides functionality for reading and manipulating Todo data.
-    /// /
+    /// 
     public class Reader
     {
         /// <summary>
@@ -72,8 +72,10 @@
         }
 
         /// <summary>
-        /// Returns a unique index for a new Todo item based on existing Todo items. </summary> <param name="existingTodos">The list of existing Todo items.</param> <returns>A unique index for a new Todo item.</returns>
-        /// /
+        /// Returns a unique index for a new Todo item based on existing Todo items.
+        /// </summary>
+        /// <param name="existingTodos">The list of existing Todo items.</param>
+        /// <returns>A unique index for a new Todo item.</returns>
         public int GetUniqueIndex(List<Todo> existingTodos)
         {
             int index = 0;

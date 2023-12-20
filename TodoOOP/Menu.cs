@@ -48,6 +48,8 @@ public class Menu
     /// Represents an editor for handling text editing operations.
     /// </summary>
     Editor editor = new Editor();
+    
+    Remover remover = new Remover();
 
     /// <summary>
     /// Represents a TODO item.
@@ -88,7 +90,7 @@ public class Menu
             Console.WriteLine("5) SAVE & EXIT");
 
             Console.Write("Select an option: ");
-            while (!int.TryParse(Console.ReadLine(), out choice))
+            while (!int.TryParse(Console.ReadLine(), out choice) || choice > 5)
             {
                 Console.WriteLine("Please enter a valid choice!");
             }
@@ -124,6 +126,7 @@ public class Menu
                     }
                     break;
                 case 4:
+                    remover.Remove(Todos, ConsoleOutput, ConsoleInput, fullPath);
                     break;
             }
             Console.Clear();

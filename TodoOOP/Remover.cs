@@ -19,8 +19,5 @@ public class Remover
         Console.ReadKey();
 
         ConsoleOutput.WriteToFile(Todos, fullPath);
-
-        
-
     }
 }

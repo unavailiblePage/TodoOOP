@@ -1,14 +1,7 @@
 ﻿namespace TodoOOP
 {
-    /// The Reader class provides functionality for reading and manipulating Todo data.
-    /// 
     public class Reader
     {
-        /// <summary>
-        /// Reads todo items from a file and returns them as a list.
-        /// </summary>
-        /// <param name="pathToFile">The path to the file that contains the todo items.</param>
-        /// <returns>A list of Todo objects read from the file.</returns>
         public List<Todo> ReadTodosFromFile(string pathToFile)
         {
             string? line;
@@ -26,10 +19,6 @@
             return todosFromFile;
         }
 
-        /// <summary>
-        /// Reads the index of the todo item that the user wants to choose.
-        /// </summary>
-        /// <returns>The index of the todo item.</returns>
         public int ReadTodoIndex()
         {
             int index;
@@ -42,11 +31,6 @@
             return index;
         }
 
-        /// <summary>
-        /// Adds new TODO items to an existing list of TODOs.
-        /// </summary>
-        /// <param name="existingTodos">The list of existing Todo objects.</param>
-        /// <returns>The updated list of Todo objects with the newly added items.</returns>
         public List<Todo> GetTodos(List<Todo> existingTodos) //Todo je datovy typ adresy
         {
             string title;
@@ -71,11 +55,6 @@
             return existingTodos;
         }
 
-        /// <summary>
-        /// Returns a unique index for a new Todo item based on existing Todo items.
-        /// </summary>
-        /// <param name="existingTodos">The list of existing Todo items.</param>
-        /// <returns>A unique index for a new Todo item.</returns>
         public int GetUniqueIndex(List<Todo> existingTodos)
         {
             int index = 0;

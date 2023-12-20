@@ -10,9 +10,8 @@ public class Remover
         int lineToRemove = ConsoleInput.ReadTodoIndex();
         
         Todos.RemoveAt(lineToRemove - 1);
-        
         Console.Clear();
-        
+        Console.WriteLine("Yours TODOs: ");
         ConsoleOutput.Write(Todos);
         Console.WriteLine();
         
@@ -21,11 +20,7 @@ public class Remover
 
         ConsoleOutput.WriteToFile(Todos, fullPath);
 
-        Console.Clear();
+        
 
-        ConsoleOutput.Write(Todos);
-        Console.WriteLine();
-
-        Console.WriteLine("The todo has been removed. Press any key to continue...");
     }
 }

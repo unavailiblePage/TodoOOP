@@ -33,7 +33,7 @@
         public int ReadTodoIndex()
         {
             int index;
-            Console.WriteLine("Write a number of todo, you want to choose: ");
+            Console.Write("Write a number of todo, you want to choose: ");
             while (!int.TryParse(Console.ReadLine(), out index))
             {
                 Console.WriteLine("Its not a number...");

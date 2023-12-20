@@ -126,6 +126,8 @@ public class Menu
                     }
                     break;
                 case 4:
+                    Console.Clear();
+                    Console.WriteLine("Yours TODOs: ");
                     remover.Remove(Todos, ConsoleOutput, ConsoleInput, fullPath);
                     break;
             }

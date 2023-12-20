@@ -1,5 +1,8 @@
 namespace TodoOOP;
 
+/// <summary>
+/// Represents a menu for managing Todos.
+/// </summary>
 public class Menu
 {
     /// <summary>
@@ -18,7 +21,12 @@ public class Menu
     /// </remarks>
     public string fileName = "Todos.txt";
 
-    /// 
+    /// <summary>
+    /// Represents the full path of a file or directory.
+    /// </summary>
+    /// <value>
+    /// A <see cref="System.String"/> representing the full path.
+    /// </value>
     public string fullPath;
 
     /// <summary>
@@ -35,14 +43,20 @@ public class Menu
     /// Represents a reader object for reading input from the console.
     /// </summary>
     public Reader ConsoleInput;
-    
+
+    /// <summary>
+    /// Represents an editor for handling text editing operations.
+    /// </summary>
     Editor editor = new Editor();
 
+    /// <summary>
+    /// Represents a TODO item.
+    /// </summary>
     public Todo TodoOutPut;
 
     /// <summary>
-    /// The Menu class represents the main menu of the program.
-    /// </summary>
+    /// The Menu class represents the main menu of the program. </summary>
+    /// /
     public Menu()
     {
         fullPath = Path.Combine(projectDirectory, fileName);
@@ -51,14 +65,19 @@ public class Menu
         Todos = ConsoleInput.ReadTodosFromFile(fullPath);
     }
 
+    /// <summary>
     /// Shows a menu to the user and allows them to select various actions.
-    /// This method does not return any value.
-    /// /
+    /// </summary>
+    /// <remarks>
+    /// This method displays a menu with options for the user to choose from.
+    /// The user can add a TODO, show existing TODOs, edit existing TODOs, delete TODOs or save and exit.
+    /// Based on the user's selection, the method performs the corresponding action.
+    /// </remarks>
     public void ShowMenuSelection()
-    
-    
-{
-    int choice;
+
+
+    {
+        int choice;
         do
         {
             Console.WriteLine("__MENU__");
@@ -68,7 +87,7 @@ public class Menu
             Console.WriteLine("4) DELETE TODO");
             Console.WriteLine("5) SAVE & EXIT");
 
-            Console.WriteLine("Select an option: ");
+            Console.Write("Select an option: ");
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
                 Console.WriteLine("Please enter a valid choice!");

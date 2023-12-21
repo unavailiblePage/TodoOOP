@@ -1,6 +1,3 @@
 1;neco;neco
 2;kkk;ccc
 3;neco;
-4;bbb;bbbb
-5;111;2222
-6;222;3333

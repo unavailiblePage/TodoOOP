@@ -11,13 +11,13 @@ public class Remover
         
         Todos.RemoveAt(lineToRemove - 1);
         Console.Clear();
+        ConsoleOutput.WriteToFile(Todos, fullPath);
         Console.WriteLine("Yours TODOs: ");
         ConsoleOutput.Write(Todos);
         Console.WriteLine();
         
         Console.Write("The todo has been removed. Press any key to continue...");
         Console.ReadKey();
-
-        ConsoleOutput.WriteToFile(Todos, fullPath);
+        
     }
 }

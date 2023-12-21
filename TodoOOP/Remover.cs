@@ -2,7 +2,7 @@
 
 public class Remover
 {
-    public void Remove(List<Todo> Todos, Writer ConsoleOutput, Reader ConsoleInput, string fullPath)
+    public void RemoveTodo(List<Todo> Todos, Writer ConsoleOutput, Reader ConsoleInput, string fullPath)
     {
         ConsoleOutput.Write(Todos);
         Console.WriteLine();

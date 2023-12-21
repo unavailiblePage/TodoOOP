@@ -8,14 +8,15 @@ public class Menu
     public List<Todo> Todos;
     public Writer ConsoleOutput;
     public Reader ConsoleInput;
-    Editor editor = new Editor();
-    Remover remover = new Remover();
-    public Todo TodoOutPut;
+    public Editor Edit;
+    public Remover Remove;
     public Menu()
     {
         fullPath = Path.Combine(projectDirectory, fileName);
         ConsoleInput = new Reader();
         ConsoleOutput = new Writer();
+        Edit = new Editor();
+        Remove = new Remover();
         ConsoleInput.checkSourceFile(fullPath);
         Todos = ConsoleInput.ReadTodosFromFile(fullPath);
     }
@@ -62,7 +63,7 @@ public class Menu
                     switch (choiceIfEdit)
                     {
                         case "y" or "Y" or "yes" or "Yes" or "YES":
-                            editor.EditTodo(Todos, ConsoleOutput, ConsoleInput, fullPath);
+                            Edit.EditTodo(Todos, ConsoleOutput, ConsoleInput, fullPath);
                             break;
                         case "n" or "N" or "no" or "No" or "NO":
                             break;
@@ -71,7 +72,7 @@ public class Menu
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Yours TODOs: ");
-                    remover.Remove(Todos, ConsoleOutput, ConsoleInput, fullPath);
+                    Remove.RemoveTodo(Todos, ConsoleOutput, ConsoleInput, fullPath);
                     break;
             }
             Console.Clear();

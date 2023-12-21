@@ -11,12 +11,12 @@ public class Menu
     Editor editor = new Editor();
     Remover remover = new Remover();
     public Todo TodoOutPut;
-    
     public Menu()
     {
         fullPath = Path.Combine(projectDirectory, fileName);
         ConsoleInput = new Reader();
         ConsoleOutput = new Writer();
+        ConsoleInput.checkSourceFile(fullPath);
         Todos = ConsoleInput.ReadTodosFromFile(fullPath);
     }
     public void ShowMenuSelection()
@@ -47,7 +47,8 @@ public class Menu
                     Console.Clear();
                     Console.WriteLine("Yours TODOs: ");
                     ConsoleOutput.Write(Todos);
-                    Console.WriteLine("Press any key to continue...");
+                    Console.WriteLine();
+                    Console.Write("Press any key to continue...");
                     Console.ReadKey();
                     break;
                 case 3:

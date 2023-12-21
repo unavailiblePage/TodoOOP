@@ -15,7 +15,7 @@ public class Remover
         ConsoleOutput.Write(Todos);
         Console.WriteLine();
         
-        Console.WriteLine("The todo has been removed. Press any key to continue...");
+        Console.Write("The todo has been removed. Press any key to continue...");
         Console.ReadKey();
 
         ConsoleOutput.WriteToFile(Todos, fullPath);

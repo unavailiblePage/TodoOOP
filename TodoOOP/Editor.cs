@@ -28,7 +28,7 @@ public class Editor
         Console.Clear();
         ConsoleOutput.Write(Todos);
         Console.WriteLine();
-        Console.WriteLine("The todo has been edited. Press any key to continue...");
+        Console.Write("The todo has been edited. Press any key to continue...");
         Console.ReadKey();
 
     }

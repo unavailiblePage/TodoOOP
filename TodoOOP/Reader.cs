@@ -2,6 +2,20 @@
 {
     public class Reader
     {
+        public void checkSourceFile(string directory)
+        {
+            string fullPath = Path.Combine(directory);
+            if (!File.Exists(fullPath))
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("TODO list file does not exist. Creating new file...");
+                Console.WriteLine();
+                Console.ReadKey();
+                Console.Clear();
+                File.Create(directory).Close();
+            }
+        }
         public List<Todo> ReadTodosFromFile(string pathToFile)
         {
             string? line;

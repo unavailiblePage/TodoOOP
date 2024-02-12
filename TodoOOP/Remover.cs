@@ -18,6 +18,5 @@ public class Remover
         
         Console.Write("The todo has been removed. Press any key to continue...");
         Console.ReadKey();
-        
     }
 }

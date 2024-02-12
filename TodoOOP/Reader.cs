@@ -47,6 +47,7 @@
 
         public List<Todo> GetTodos(List<Todo> existingTodos) //Todo je datovy typ adresy
         {
+            int priority;
             string title;
             string description;
             
@@ -56,8 +57,10 @@
                 title = Console.ReadLine();
                 Console.WriteLine("Write a TODO description: ");
                 description = Console.ReadLine();
+                Console.WriteLine("Write a TODO priority: ");
+                priority = int.Parse(Console.ReadLine());
                 
-                existingTodos.Add(new Todo(GetUniqueIndex(existingTodos), title, description));
+                existingTodos.Add(new Todo(GetUniqueIndex(existingTodos), priority, title, description));
                 Console.WriteLine("Want you add another TODO? Y x N ");
                 string answer = Console.ReadLine().ToLower();
                 if (answer == "n")
@@ -71,16 +74,14 @@
 
         public int GetUniqueIndex(List<Todo> existingTodos)
         {
-            int index = 0;
-            while (true)
+            for (int index = 1; ; index++)
             {
-                index++;
                 if (!existingTodos.Exists(todoItem => todoItem.Index == index))
                 {
-                    break;
-                }
+                    return index;
+                } 
             }
-            return index;
+        }
             /*int index = 0;
 
             bool flag = false;
@@ -105,7 +106,7 @@
                 }
             }
             return index; */
-        }
+        
     }
 }
     

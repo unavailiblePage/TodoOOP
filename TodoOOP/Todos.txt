@@ -1,3 +1,4 @@
-1;neco;neco
-2;kkk;ccc
-3;neco;
+1;5;neco;neco
+3;3;a;a
+4;1;neco;s necim
+5;2;ahoj;vole

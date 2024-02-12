@@ -27,7 +27,7 @@ public class Menu
         {
             Console.WriteLine("__MENU__");
             Console.WriteLine("1) ADD TODO");
-            Console.WriteLine("2) SHOW TODOS");
+            Console.WriteLine("2) TODOS BY PRIORITY");
             Console.WriteLine("3) EDIT TODO");
             Console.WriteLine("4) DELETE TODO");
             Console.WriteLine("5) SAVE & EXIT");
@@ -47,7 +47,7 @@ public class Menu
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Yours TODOs: ");
-                    ConsoleOutput.Write(Todos);
+                    ConsoleOutput.SortedWrite(Todos);
                     Console.WriteLine();
                     Console.Write("Press any key to continue...");
                     Console.ReadKey();

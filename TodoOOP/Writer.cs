@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TodoOOP
+﻿namespace TodoOOP
 {
     public class Writer
     {
@@ -13,6 +7,14 @@ namespace TodoOOP
             for (int i = 0; i < todoToWrite.Count; i++)
             {
                 Console.WriteLine(todoToWrite[i].ToString());
+            }
+        }
+        public void SortedWrite(List<Todo> todoToWrite)
+        {
+            todoToWrite = todoToWrite.OrderBy(todoItem => todoItem.Priority).ToList();
+            for (int i = 0; i < todoToWrite.Count; i++)
+            {
+                Console.WriteLine(todoToWrite[i].ToStringByPriority());
             }
         }
         public void WriteToFile(List<Todo> todoToWriteToFile, string filePath)

@@ -1,0 +1,27 @@
+﻿V tomto projektu by se dalo přidat několik nových funkcí a vylepšení. 
+Zde jsou některé nápady:
+  
+Filtrování úkolů: Mohli byste přidat funkci, která umožňuje uživatelům filtrovat úkoly podle různých kritérií, 
+    jako je název, popis nebo datum vytvoření.  
+
+Prioritizace úkolů: Mohli byste přidat možnost nastavit prioritu pro každý úkol. 
+    Tímto způsobem by uživatelé mohli snadno identifikovat a řešit nejdůležitější úkoly.  
+
+Přidání termínů: Mohli byste přidat možnost nastavit termín pro každý úkol. 
+    Tímto způsobem by uživatelé mohli sledovat, které úkoly je třeba dokončit nejdříve.  
+
+Přidání stavu úkolů: Mohli byste přidat možnost označit úkoly jako dokončené. 
+    Tímto způsobem by uživatelé mohli snadno sledovat svůj pokrok.  
+
+Ukládání úkolů do databáze: Místo ukládání úkolů do souboru byste mohli úkoly ukládat do databáze. 
+    To by umožnilo snadnější přístup a manipulaci s daty.  
+
+Vytvoření uživatelského rozhraní: Místo použití konzolového rozhraní byste mohli vytvořit grafické uživatelské rozhraní. 
+    To by mohlo zlepšit uživatelskou zkušenost.  
+
+Přidání testů: Mohli byste přidat jednotkové testy pro ověření správnosti kódu a zajištění kvality kódu.  
+
+Refaktorování kódu: Některé části kódu by mohly být refaktorovány pro lepší čitelnost a údržbu. 
+    Například metoda GetUniqueIndex by mohla být zjednodušena.  
+
+Dokumentace: Mohli byste přidat více komentářů a dokumentace kódu pro lepší pochopení funkcí a metod.

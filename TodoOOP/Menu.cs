@@ -17,7 +17,7 @@ public class Menu
         ConsoleOutput = new Writer();
         Edit = new Editor();
         Remove = new Remover();
-        ConsoleInput.checkSourceFile(fullPath);
+        ConsoleInput.CheckSourceFile(fullPath);
         Todos = ConsoleInput.ReadTodosFromFile(fullPath);
     }
     public void ShowMenuSelection()

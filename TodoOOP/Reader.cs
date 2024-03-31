@@ -2,7 +2,7 @@
 {
     public class Reader
     {
-        public void checkSourceFile(string directory)
+        public void CheckSourceFile(string directory)
         {
             string fullPath = Path.Combine(directory);
             if (!File.Exists(fullPath))
@@ -19,20 +19,19 @@
         public List<Todo> ReadTodosFromFile(string pathToFile)
         {
             string? line;
-            List<Todo> todosFromFile = new List<Todo>(); // list objektů
+            List<Todo> todosFromFile = new List<Todo>(); // list of objects
             using StreamReader reader = new StreamReader(Path.Combine(pathToFile));
-            Todo todo; // definice prostoru pro nový objekt
+            Todo todo; // defining space for a new object
             line = reader.ReadLine();
             while (line != null)
             {
-                todo = new Todo(); //vytvoření nového objektu todo
+                todo = new Todo(); //creating new object todo
                 todo.FromString(line);
-                todosFromFile.Add(todo); //objekt dávám do listu objektů
+                todosFromFile.Add(todo); //object is added into list of objects
                 line = reader.ReadLine();
             }
             return todosFromFile;
         }
-
         public int ReadTodoIndex()
         {
             int index;
@@ -44,35 +43,58 @@
             }
             return index;
         }
-
-        public List<Todo> GetTodos(List<Todo> existingTodos) //Todo je datovy typ adresy
+        public List<Todo> GetTodos(List<Todo> existingTodos)
         {
-            int priority;
-            string title;
-            string description;
-            
             while (true)
             {
-                Console.WriteLine("Write a TODO title: ");
-                title = Console.ReadLine();
-                Console.WriteLine("Write a TODO description: ");
-                description = Console.ReadLine();
-                Console.WriteLine("Write a TODO priority: ");
-                priority = int.Parse(Console.ReadLine());
-                
+                string title = string.Empty;
+                while (true)
+                {
+                    Console.WriteLine("Write a TODO title: ");
+                    title = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(title))
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Title cannot be empty. Please enter a valid title.");
+                }
+
+                string description = string.Empty;
+                while (true)
+                {
+                    Console.WriteLine("Write a TODO description: ");
+                    description = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(description))
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Description cannot be empty. Please enter a valid description.");
+                }
+
+                int priority = 0;
+                while (true)
+                {
+                    Console.WriteLine("Write a TODO priority (1-5): ");
+                    if (int.TryParse(Console.ReadLine(), out priority) && priority >= 1 && priority <= 5)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Invalid priority. Please enter a number between 1 and 5.");
+                }
+
                 existingTodos.Add(new Todo(GetUniqueIndex(existingTodos), priority, title, description));
-                Console.WriteLine("Want you add another TODO? Y x N ");
-                string answer = Console.ReadLine().ToLower();
-                if (answer == "n")
+
+                Console.WriteLine("Want to add another TODO? Y/N ");
+                string answer = Console.ReadLine();
+                if (string.Equals(answer, "n", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
                 }
             }
-            existingTodos = existingTodos.OrderBy(todoItem => todoItem.Index).ToList();
-            return existingTodos;
+            return existingTodos.OrderBy(todoItem => todoItem.Index).ToList();
         }
 
-        public int GetUniqueIndex(List<Todo> existingTodos)
+        private int GetUniqueIndex(List<Todo> existingTodos)
         {
             for (int index = 1; ; index++)
             {
@@ -82,31 +104,6 @@
                 } 
             }
         }
-            /*int index = 0;
-
-            bool flag = false;
-            while (true)
-            {
-                index++;
-                for (int i = 0; i < existingTodos.Count; i++)
-                {
-                    if (existingTodos[i].Index == index)
-                    {
-                        flag = true;
-                        break;
-                    }
-                }
-                if (!flag)
-                {
-                    break;
-                }
-                else
-                {
-                    flag = false;
-                }
-            }
-            return index; */
-        
     }
 }
     

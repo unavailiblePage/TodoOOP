@@ -39,7 +39,7 @@
             while (!int.TryParse(Console.ReadLine(), out index))
             {
                 Console.WriteLine("Its not a number...");
-                Console.WriteLine("Write a todo number again...");
+                Console.Write("Write a number of todo, you want to choose: ");
             }
             return index;
         }

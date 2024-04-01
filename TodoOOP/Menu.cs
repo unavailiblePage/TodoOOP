@@ -55,19 +55,8 @@ public class Menu
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Yours TODOs: ");
-                    ConsoleOutput.Write(Todos);
                     Console.WriteLine();
-                    Console.WriteLine("Do you want to edit your todos? Y/N");
-                    string choiceIfEdit = Console.ReadLine();
-                    Console.Clear();
-                    switch (choiceIfEdit)
-                    {
-                        case "y" or "Y" or "yes" or "Yes" or "YES":
-                            Edit.EditTodo(Todos, ConsoleOutput, ConsoleInput, fullPath);
-                            break;
-                        case "n" or "N" or "no" or "No" or "NO":
-                            break;
-                    }
+                    Edit.EditTodo(Todos, ConsoleOutput, ConsoleInput, fullPath);
                     break;
                 case 4:
                     Console.Clear();
